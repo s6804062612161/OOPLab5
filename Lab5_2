@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Star {
+    public static void addStars(ArrayList<String> list) {
+        for (int i = 1; i <= list.size(); i += 2) {
+            list.add(i, "*");
+        }
+    }
+
+    public static void removeStars(ArrayList<String> list) {
+        for (int i = list.size() - 1; i >= 0; i--) {
+            if (list.get(i).equals("*")) {
+                list.remove(i);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> list = new ArrayList<>();
+        
+        String input = sc.nextLine();
+        String[] words = input.split("\\s+");
+        for (String w : words) {
+            list.add(w);
+        }
+
+        int cmd1 = sc.nextInt();
+        int cmd2 = sc.nextInt();
+
+        if (cmd1 == 1) addStars(list);
+        else if (cmd1 == 2) removeStars(list);
+        System.out.println(list);
+
+        if (cmd2 == 1) addStars(list);
+        else if (cmd2 == 2) removeStars(list);
+        System.out.println(list);
+    }
+}
