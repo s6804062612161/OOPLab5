@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Lab5_1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<>();
+        
+        while (sc.hasNextInt()) {
+            list.add(sc.nextInt());
+        }
+
+        double sum = 0;
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+
+        for (int num : list) {
+            sum += num;
+            if (num < min) min = num;
+            if (num > max) max = num;
+        }
+
+        double avg = sum / list.size();
+        System.out.printf("%.2f\n", avg);
+        System.out.println(max);
+        System.out.println(min);
+
+        list.removeIf(n -> n % 2 == 0);
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + (i == list.size() - 1 ? "" : " "));
+        }
+        System.out.println();
+    }
+}
