@@ -1,0 +1,38 @@
+import java.util.ArrayList;
+
+class Employee {
+    private String firstname;
+    private String lastname;
+    private String id;
+    private double salary;
+
+    public Employee(String firstname, String lastname, String id, double sal) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.id = id;
+        this.salary = sal;
+    }
+
+    public double earning() {
+        return salary * 0.95;
+    }
+
+    public double bonus(int year) {
+        if (year > 5) {
+            return salary * 12;
+        } else {
+            return salary * 6;
+        }
+    }
+
+    public String getFirstname() { return firstname; }
+    public String getLastname() { return lastname; }
+
+    public static void printEmp(ArrayList<Employee> a, int workYear) {
+        System.out.printf("%-12s %-12s %-12s %-12s\n", "First name", "Last name", "Earning", "Bonus");
+        for (Employee emp : a) {
+            System.out.printf("%-12s %-12s %-12.2f %-12.2f\n", 
+                emp.getFirstname(), emp.getLastname(), emp.earning(), emp.bonus(workYear));
+        }
+    }
+}
